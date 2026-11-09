@@ -1,7 +1,7 @@
 import { BASE_PATH } from '@/lib/base-path';
 import { PortfolioFooter } from '@/components/portfolio/PortfolioFooter';
 import { PortfolioNavigation } from '@/components/portfolio/PortfolioNavigation';
-import { portfolioIdentity, portfolioProjects } from '@/lib/portfolio-content';
+import { portfolioProjects } from '@/lib/portfolio-content';
 
 export const dynamic = 'force-static';
 
@@ -11,20 +11,13 @@ export default function HomePage() {
       <PortfolioNavigation />
       <main>
         <section className="home-hero" aria-labelledby="home-title">
-          <p className="hero-name">ISIDORA ORREGO</p>
-          <h1 id="home-title">
-            <span className="hero-mirar">
-              MIRAR
-              <img
-                className="hero-pin"
-                src={`${BASE_PATH}/portfolio/identity/isidora-alfiler-azul.png`}
-                alt=""
-                aria-hidden="true"
-              />
-            </span>
-            <em>DISTINTO</em>
+          <h1 className="hero-visual" id="home-title">
+            <img
+              className="hero-pin"
+              src={`${BASE_PATH}/portfolio/identity/hero-alfiler-azul-texto-curvo.png`}
+              alt="Isidora Orrego — Mirar distinto"
+            />
           </h1>
-          <p className="hero-claim">diseñar con intención</p>
           <span className="hero-index" aria-hidden="true">IO / 2026</span>
         </section>
 
@@ -33,7 +26,7 @@ export default function HomePage() {
           <p className="home-intro-copy">
             Diseño desde el concepto, buscando relaciones entre moda, imagen,
             materialidad y comunicación. Me interesa construir propuestas claras y
-            cuidadas, dejando siempre espacio para una decisión inesperada que les dé
+            cuidadas, dejando siempre espacio para una decisión inesperada que entregue
             carácter.
           </p>
         </section>
@@ -79,9 +72,17 @@ export default function HomePage() {
         </section>
 
         <section className="home-principle" aria-label="Principio de trabajo">
-          <p>{portfolioIdentity.principle}</p>
-          <blockquote>{portfolioIdentity.rule}</blockquote>
-          <span>{portfolioIdentity.balance.restraint}<br />{portfolioIdentity.balance.expression}</span>
+          <p className="principle-label">
+            ORDEN <strong>+ INTERRUPCIÓN</strong>
+          </p>
+          <blockquote className="principle-rule">
+            <span>PRIMERO</span>
+            <span>ESTABLECER</span>
+            <span>UN ORDEN,</span>
+            <span>DESPUÉS VER</span>
+            <span>DÓNDE</span>
+            <strong>ROMPERLO.</strong>
+          </blockquote>
         </section>
       </main>
       <PortfolioFooter />

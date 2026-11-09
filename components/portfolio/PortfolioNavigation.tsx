@@ -48,7 +48,12 @@ export function PortfolioNavigation() {
           aria-label="Isidora Orrego — ir al inicio"
           onClick={closeMenu}
         >
-          ISIDORA ORREGO
+          <img
+            className={styles.brandLogo}
+            src={`${BASE_PATH}/portfolio/identity/isidora-monograma-io.png`}
+            alt=""
+            aria-hidden="true"
+          />
         </a>
 
         <button

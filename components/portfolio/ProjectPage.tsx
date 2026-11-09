@@ -26,32 +26,16 @@ const statementHighlights: Record<PortfolioProject['slug'], string> = {
 
 const metadataToolLines: Record<PortfolioProject['slug'], string[]> = {
   'cautela-intima': [
-    'patronaje manual · confección · diseño a medida',
-    'experimentación material · plisado',
-    'manipulación de gasa · trabajo con alambre',
-    'construcción estructural',
+    'Patronaje manual a medida',
+    'Confección',
+    'Experimentación material',
   ],
-  vinculo: [
-    'patronaje · corte de cuero · costura manual',
-    'costura a máquina · punzón · tenedores',
-    'agujas de punta redonda · biselador · bruñidor',
-    'sacabocados · martillo de goma · hilo encerado',
-    'Agorex · sellado y bruñido de bordes',
-  ],
-  'entre-corteza': [
-    'Adobe Illustrator para representación 3D',
-    'patronaje manual · confección',
-  ],
+  vinculo: ['Patronaje manual', 'Confección mixta'],
+  'entre-corteza': ['Adobe Illustrator', 'Patronaje manual', 'Confección'],
   'proximo-movimiento': ['Adobe Illustrator'],
 };
 
 const metadataRoleLines: Partial<Record<PortfolioProject['slug'], string[]>> = {
-  'entre-corteza': [
-    'diseño de uno de los looks · patronaje',
-    'confección completa · representación 3D',
-    'participación en conceptualización grupal',
-    'gestión colaboración LUAU Shoes',
-  ],
   'proximo-movimiento': [
     'co-diseño del bolso · definición del aprovechamiento de uniformes',
     'búsqueda de referentes · fichas técnicas completas',
@@ -111,6 +95,24 @@ function HighlightedStatement({ project, text }: { project: PortfolioProject; te
 
 function MetadataLines({ lines }: { lines: string[] }) {
   return <>{lines.map((line) => <span className={styles.metaLine} key={line}>{line}</span>)}</>;
+}
+
+function ProjectHighlightText({ project }: { project: PortfolioProject }) {
+  if (!project.highlight) return null;
+
+  const phrase = project.slug === 'vinculo'
+    ? 'Revista D'
+    : project.slug === 'entre-corteza'
+      ? 'LUAU Shoes'
+      : null;
+  if (!phrase) return project.highlight;
+  const [before, after] = project.highlight.split(phrase);
+
+  return (
+    <>
+      {before}<strong className={styles.highlightAccent}>{phrase}</strong>{after}
+    </>
+  );
 }
 
 function Narrative({ module, project }: { module: NarrativeModule; project: PortfolioProject }) {
@@ -180,12 +182,26 @@ function DetailList({ label, items }: { label: string; items: string[] }) {
 export function ProjectPage({ project }: { project: PortfolioProject }) {
   const hero = project.images.find((image) => image.role === 'hero')!;
   const followUpProjects = getFollowUpProjects(project.slug) ?? [];
+  const isCautelaIntima = project.slug === 'cautela-intima';
+  const isVinculo = project.slug === 'vinculo';
+  const isEntreCorteza = project.slug === 'entre-corteza';
+  const usesProjectMetadataLabels = isCautelaIntima || isVinculo || isEntreCorteza;
+  const projectClassName = isCautelaIntima
+    ? styles.project_cautela_intima
+    : isVinculo
+      ? styles.project_vinculo
+      : isEntreCorteza
+        ? styles.project_entre_corteza
+        : '';
   const accentStyle = {
     '--project-accent': projectAccents[project.slug],
   } as CSSProperties;
 
   return (
-    <div className={styles.projectShell} style={accentStyle}>
+    <div
+      className={`${styles.projectShell} ${projectClassName}`}
+      style={accentStyle}
+    >
       <PortfolioNavigation />
       <main>
         <header className={styles.projectIntro}>
@@ -196,13 +212,18 @@ export function ProjectPage({ project }: { project: PortfolioProject }) {
 
           <dl className={`${styles.metadata} ${project.metadata.role ? styles.metadataFive : styles.metadataFour}`}>
             <div>
-              <dt>Año / período</dt>
+              <dt>{usesProjectMetadataLabels ? 'Año' : 'Año / período'}</dt>
               <dd>
                 {project.metadata.year}
-                <span className={styles.metaSecondary}>{project.metadata.period}</span>
+                {!usesProjectMetadataLabels ? (
+                  <span className={styles.metaSecondary}>{project.metadata.period}</span>
+                ) : null}
               </dd>
             </div>
-            <div><dt>Curso</dt><dd>{project.metadata.course}</dd></div>
+            <div>
+              <dt>{usesProjectMetadataLabels ? 'Proyecto' : 'Curso'}</dt>
+              <dd>{project.metadata.course}</dd>
+            </div>
             <div>
               <dt>Tipo</dt>
               <dd>
@@ -281,16 +302,22 @@ export function ProjectPage({ project }: { project: PortfolioProject }) {
 
         {project.highlight ? (
           <aside className={styles.projectHighlight}>
-            <span>Hito</span>
-            <p>{project.highlight}</p>
+            <span>{isEntreCorteza ? 'Colaboración' : 'Hito'}</span>
+            <p><ProjectHighlightText project={project} /></p>
           </aside>
         ) : null}
 
-        <section className={`${styles.narrative} ${styles[`narrative_${project.slug.replaceAll('-', '_')}`]}`} aria-labelledby="narrative-title">
-          <div className={styles.narrativeHeading}>
-            <p className={styles.sectionLabel}>03 / Desarrollo visual</p>
-            <h2 id="narrative-title">De la idea<br />a la materia</h2>
-          </div>
+        <section
+          className={`${styles.narrative} ${styles[`narrative_${project.slug.replaceAll('-', '_')}`]}`}
+          aria-label={isVinculo ? 'Desarrollo visual' : undefined}
+          aria-labelledby={isVinculo ? undefined : 'narrative-title'}
+        >
+          {!isVinculo ? (
+            <div className={styles.narrativeHeading}>
+              <p className={styles.sectionLabel}>03 / Desarrollo visual</p>
+              <h2 id="narrative-title">De la idea<br />a la materia</h2>
+            </div>
+          ) : null}
           {project.narrative.map((module, index) => (
             <Narrative module={module} project={project} key={`${module.kind}-${index}`} />
           ))}

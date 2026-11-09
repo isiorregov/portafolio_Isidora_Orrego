@@ -66,7 +66,6 @@ textarea {
 
 .site-wordmark,
 .desktop-nav a,
-.hero-name,
 .section-index,
 .hero-index {
   font-size: 0.75rem;
@@ -95,71 +94,22 @@ textarea {
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(6rem, 11vh, 9rem) 1.5rem 2rem;
+  display: grid;
+  place-items: center;
+  padding: 7.5rem clamp(1.5rem, 4vw, 4rem) 4rem;
   border-bottom: 1px solid var(--line);
 }
 
-.hero-name {
-  position: absolute;
-  top: clamp(5.5rem, 12vh, 8rem);
-  left: 1.5rem;
+.hero-visual {
+  width: min(68vw, 74rem);
   margin: 0;
-}
-
-.home-hero h1 {
-  position: relative;
-  z-index: 2;
-  margin: 0;
-  font-size: clamp(5rem, 17.4vw, 16.8rem);
-  font-weight: 600;
-  letter-spacing: -0.085em;
-  line-height: 0.72;
-}
-
-.home-hero h1 span,
-.home-hero h1 em {
-  display: block;
-}
-
-.home-hero h1 .hero-mirar {
-  position: relative;
-  width: fit-content;
-}
-
-.home-hero h1 em {
-  margin-left: 8.5vw;
-  color: var(--blue);
-  font-family: var(--font-serif);
-  font-size: 0.91em;
-  font-weight: 400;
-  letter-spacing: -0.055em;
 }
 
 .hero-pin {
-  position: absolute;
-  z-index: 3;
-  top: -0.12em;
-  right: -0.02em;
-  width: clamp(7rem, 23%, 13.5rem);
+  width: 100%;
   height: auto;
-  transform: scaleX(-1) rotate(-7deg);
-  transform-origin: center;
   pointer-events: none;
-  filter: drop-shadow(0 16px 18px rgba(32, 72, 255, 0.13));
-  animation: none;
-}
-
-.hero-claim {
-  position: relative;
-  z-index: 4;
-  align-self: flex-end;
-  margin: clamp(2rem, 5vh, 4rem) 8vw 0 0;
-  font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 1.8vw, 2rem);
-  font-style: italic;
+  filter: drop-shadow(0 18px 24px rgba(17, 45, 170, 0.12));
 }
 
 .hero-index {
@@ -332,44 +282,53 @@ textarea {
 }
 
 .home-principle {
-  min-height: 75svh;
+  min-height: calc(100svh - 5.5rem);
   display: grid;
-  grid-template-columns: 1fr minmax(20rem, 2fr) 1fr;
+  grid-template-columns: minmax(10rem, 14vw) minmax(0, 1fr);
   gap: 2rem;
-  align-items: center;
-  padding: clamp(6rem, 12vw, 12rem) 1.5rem;
+  align-items: start;
+  padding: clamp(6rem, 12vh, 8rem) clamp(1rem, 11vw, 9rem);
   color: var(--paper);
   background: var(--ink);
 }
 
 .home-principle p,
-.home-principle blockquote,
-.home-principle span {
+.home-principle blockquote {
   margin: 0;
 }
 
-.home-principle p,
-.home-principle span {
-  color: var(--blue);
+.principle-label {
+  padding-top: 0.65rem;
+  color: var(--paper);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.home-principle blockquote {
-  font-family: var(--font-serif);
+.principle-label strong {
+  color: var(--blue);
+  font-weight: inherit;
+}
+
+.principle-rule {
+  max-width: 100%;
+  font-family: var(--font-sans);
   font-size: clamp(3rem, 7vw, 7rem);
   line-height: 0.88;
   letter-spacing: -0.05em;
+  text-transform: uppercase;
 }
 
-.home-principle span {
-  justify-self: end;
+.principle-rule span,
+.principle-rule strong {
+  display: block;
 }
 
-@keyframes pin-breathe {
-  0%, 100% { transform: translate3d(0, 0, 0) scaleX(-1) rotate(-7deg); }
-  50% { transform: translate3d(0, -4px, 0) scaleX(-1) rotate(-5.5deg); }
+.principle-rule strong {
+  color: var(--blue);
+  font-weight: inherit;
 }
 
 @media (max-width: 760px) {
@@ -383,33 +342,11 @@ textarea {
 
   .home-hero {
     min-height: 100svh;
-    padding: 6rem 1rem 1.25rem;
+    padding: 6rem 1rem 3.5rem;
   }
 
-  .hero-name {
-    top: 5rem;
-    left: 1rem;
-  }
-
-  .home-hero h1 {
-    font-size: clamp(4.6rem, 25vw, 8.2rem);
-    line-height: 0.78;
-  }
-
-  .home-hero h1 em {
-    margin-left: 0;
-    font-size: 0.78em;
-  }
-
-  .hero-pin {
-    top: -0.07em;
-    right: 0;
-    width: 29%;
-  }
-
-  .hero-claim {
-    margin: 3rem 0 0;
-    align-self: flex-start;
+  .hero-visual {
+    width: min(94vw, 42rem);
   }
 
   .hero-index {
@@ -468,12 +405,16 @@ textarea {
   .home-principle {
     min-height: auto;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 2.5rem;
     padding: 7rem 1rem;
   }
 
-  .home-principle span {
-    justify-self: start;
+  .principle-label {
+    padding-top: 0;
+  }
+
+  .principle-rule {
+    font-size: clamp(3rem, 13vw, 5.6rem);
   }
 }
 

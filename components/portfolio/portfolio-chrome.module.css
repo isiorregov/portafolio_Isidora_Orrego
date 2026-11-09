@@ -39,14 +39,18 @@
 }
 
 .wordmark {
+  display: flex;
   width: fit-content;
+  height: 3.75rem;
+  align-items: center;
   color: inherit;
-  font-family: var(--font-dm-sans), Arial, sans-serif;
-  font-size: clamp(0.85rem, 1.15vw, 1rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
   text-decoration: none;
+}
+
+.brandLogo {
+  width: 6rem;
+  height: auto;
+  display: block;
 }
 
 .navList {
@@ -202,6 +206,14 @@
   .navigationInner {
     min-height: 4.25rem;
     padding: 0.65rem 1rem;
+  }
+
+  .wordmark {
+    height: 2.95rem;
+  }
+
+  .brandLogo {
+    width: 4.8rem;
   }
 
   .navigationCompact .navigationInner {

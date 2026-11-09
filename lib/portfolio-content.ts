@@ -309,7 +309,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Cautela Íntima',
     concept: 'Umbral Recíproco',
     statement: 'Abrirse no ocurre de inmediato. Aparece cuando la conexión se vuelve recíproca.',
-    homeMetadata: 'Alta Costura · 2026',
+    homeMetadata: '2026',
     accent: {
       primary: 'azul eléctrico',
       secondary: 'gris humo',
@@ -322,25 +322,20 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     metadata: {
       year: '2026',
-      course: 'Taller de Moda y Gestión V — Alta Costura',
+      course: 'Alta Costura',
       period: 'marzo a julio',
       type: 'Individual',
       tools: [
-        'patronaje manual',
-        'confección',
-        'diseño a medida',
-        'experimentación material',
-        'plisado',
-        'manipulación de gasa',
-        'trabajo con alambre',
-        'construcción estructural',
+        'Patronaje manual a medida',
+        'Confección',
+        'Experimentación material',
       ],
     },
     commission:
-      'El proyecto proponía desarrollar una pieza de Alta Costura a partir de una emoción personal, buscando que la propuesta naciera desde una experiencia auténtica y no únicamente desde una referencia estética. A partir de una musa cercana y sus medidas, se debía diseñar y confeccionar un look completo incorporando obligatoriamente una técnica tradicional de Alta Costura y una técnica de Neocouture. El proceso se desarrolló durante un semestre y contempló investigación personal, experimentación material, patronaje y confección a medida.',
+      'El proyecto proponía desarrollar una propuesta de Alta Costura a partir de una emoción personal, buscando que naciera desde una experiencia auténtica y no únicamente desde una referencia estética. A partir de una musa cercana y sus medidas, se debía diseñar y confeccionar un look completo incorporando una técnica tradicional de Alta Costura y una técnica de Neocouture. El proceso contempló investigación personal, experimentación material, patronaje y confección a medida.',
     proposal:
-      'Cautela Íntima nace de analizar distintos hitos personales hasta reconocer un patrón que se repetía en ellos: mi forma selectiva de abrir mi mundo interior a otras personas. Desde esta emoción surge el concepto ‘Umbral Recíproco’, que representa ese instante en que la confianza deja de ser una decisión consciente y comienza a aparecer naturalmente al percibir una conexión genuina con el otro. Esta idea se tradujo formalmente mediante distintas capas de protección y apertura. La gasa plisada, utilizada como técnica tradicional de Alta Costura, representa el movimiento de sentimientos y sensaciones internas; su dirección cambia alrededor del torso, zona donde sitúo físicamente emociones ligadas al corazón y al estómago. En contraste, el alambre pavonado construye una estructura exterior de aparente rigidez que corresponde a la técnica de Neocouture. Su interior incorpora pintura en aerosol cuyos reflejos aparecen solo desde determinados ángulos, funcionando como los primeros indicios de apertura. El resultado es un look compuesto por enterito, corset y capa, donde concepto, materialidad y construcción responden a un mismo relato.',
-    result: ['enterito', 'corset', 'capa estructural'],
+      'Cautela Íntima nace de analizar distintos hitos personales hasta reconocer un patrón que se repetía en ellos: mi forma selectiva de abrir mi mundo interior a otras personas. Desde esta emoción surge el concepto ‘Umbral Recíproco’, que representa ese instante en que la confianza deja de ser una decisión consciente y comienza a aparecer naturalmente al percibir una conexión genuina con el otro. Esta idea se tradujo formalmente mediante distintas capas de protección y apertura. La gasa plisada, representa el movimiento de sentimientos y sensaciones internas; su dirección cambia alrededor del torso, zona donde sitúo físicamente emociones más protagonistas ligadas al corazón y al estómago. En contraste, el alambre pavonado construye una estructura exterior de apariencia rígida. Su interior incorpora pintura en aerosol cuyos reflejos aparecen solo desde determinados ángulos, funcionando como los primeros indicios de apertura. El resultado, donde concepto, materialidad y construcción responden a un mismo relato.',
+    result: ['Enterito', 'Corset', 'Capa estructural'],
     resultDescription: 'Look completo confeccionado a medida compuesto por:',
     techniques: [
       'Gasa con plisado orgánico',
@@ -348,11 +343,11 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     techniqueDetails: [
       {
-        label: 'TÉCNICA TRADICIONAL DE ALTA COSTURA',
+        label: 'Técnica tradicional de Alta Costura',
         value: 'Gasa con plisado orgánico',
       },
       {
-        label: 'TÉCNICA NEOCOUTURE',
+        label: 'Técnica Neocouture',
         value: 'Estructura realizada con alambre pavonado',
       },
     ],
@@ -449,7 +444,7 @@ export const portfolioProjects: PortfolioProject[] = [
     number: '02',
     title: 'Vínculo',
     statement: 'Un vínculo se transforma a medida que acumula tiempo, huellas y memoria.',
-    homeMetadata: 'Complementos de Moda · 2025',
+    homeMetadata: '2025',
     accent: {
       primary: 'azul eléctrico',
       secondary: 'bronce / taupe',
@@ -460,27 +455,12 @@ export const portfolioProjects: PortfolioProject[] = [
       course: 'Complementos de Moda',
       period: 'agosto a diciembre',
       type: 'Individual',
-      tools: [
-        'patronaje',
-        'corte de cuero',
-        'costura manual',
-        'costura a máquina',
-        'punzón',
-        'tenedores',
-        'agujas de punta redonda',
-        'biselador',
-        'bruñidor',
-        'sacabocados',
-        'martillo de goma',
-        'hilo encerado',
-        'Agorex',
-        'sellado y bruñido de bordes',
-      ],
+      tools: ['Patronaje manual', 'Confección mixta'],
     },
     commission:
-      'El encargo consistía en desarrollar una colección coherente de tres artículos de cuero en tamaños L, M y S, entendidos como un sistema y no como piezas independientes. La propuesta debía incluir conceptualización, moldes y fichas técnicas completas, además de responder a criterios de complejidad, prolijidad y oficio. Una de las piezas debía estar completamente cosida a mano, otra a máquina y la tercera podía resolverse libremente. El proyecto se desarrolló individualmente durante el segundo semestre de 2025.',
+      'Consistía en desarrollar una colección coherente de tres artículos de cuero en tres tamaños diferentes, entendidos como un sistema y no como piezas independientes. La propuesta debía incluir conceptualización, moldes y fichas técnicas completas, además de responder a criterios de complejidad, prolijidad y oficio.',
     proposal:
-      'Vínculo explora cómo una relación se construye y adquiere complejidad a medida que avanza el tiempo. La colección se organiza en tres momentos —Origen, Tránsito y Memoria— que funcionan como una secuencia progresiva. Para mantener una identidad común, las piezas comparten cuero gris oscuro, herrajes en bronce envejecido, esquinas redondeadas y un sistema visible de uniones. A medida que la colección avanza, estas constantes comienzan a transformarse: aumenta la cantidad y dirección de las uniones, el asa cambia de posición y aparecen progresivamente más ojetillos, remaches y hebillas. Los detalles metálicos funcionan como huellas que se acumulan y permiten leer visualmente el paso del tiempo. Las tres piezas fueron diseñadas, patronadas y construidas por mí, combinando costura a máquina con trabajo manual de marroquinería. En Memoria, la costura completamente manual refuerza el carácter más acumulativo e íntimo de la última etapa. El resultado busca equilibrar concepto y funcionalidad, consiguiendo que cada pieza pueda existir individualmente mientras mantiene una relación reconocible con el resto de la colección.',
+      'Vínculo explora cómo una relación se construye y adquiere complejidad a medida que avanza el tiempo. La colección se organiza en tres momentos —Origen, Tránsito y Memoria— que funcionan como una secuencia progresiva. Para mantener una identidad común, las piezas comparten el mismo cuero, herrajes en bronce envejecido, esquinas redondeadas y un sistema visible de uniones. A medida que la colección avanza, estas constantes comienzan a transformarse: aumenta la cantidad y dirección de las uniones, el asa cambia de posición y aparecen progresivamente más avíos, funcionando como huellas que se acumulan y permiten leer visualmente el paso del tiempo. En Memoria, la costura completamente manual refuerza el carácter más acumulativo e íntimo de la última etapa. El resultado busca equilibrar concepto y funcionalidad, consiguiendo que cada pieza pueda existir individualmente mientras mantiene una relación reconocible con el resto de la colección.',
     collectionDescription: '3 piezas en cuero',
     collection: [
       'ORIGEN — L · bolso de hombro',
@@ -493,9 +473,9 @@ export const portfolioProjects: PortfolioProject[] = [
       { name: 'Memoria', detail: 'cosido completamente a mano' },
     ],
     materials: [
-      'cuero gris oscuro',
-      'herrajes bronce envejecido',
-      'badana para bolsillos interiores',
+      'Cuero liso gris oscuro',
+      'Avíos en bronce envejecido',
+      'Badana para compartimientos interiores',
     ],
     highlight:
       'La colección completa fue seleccionada por la Facultad de Diseño UDD para ser fotografiada y publicada en Revista D como parte de una selección de trabajos destacados.',
@@ -541,6 +521,13 @@ export const portfolioProjects: PortfolioProject[] = [
         originalFileName: 'vinculo_06_detalle-hebilla.jpeg',
         role: 'detail',
       },
+      {
+        id: 'vinculo-producto-en-uso',
+        src: '/portfolio/projects/vinculo/vinculo_07_producto-en-uso.webp',
+        originalFileName: 'vinculo_07_producto-en-uso.jpeg',
+        role: 'result',
+        alt: 'Bolso Origen de la colección Vínculo usado al hombro',
+      },
     ],
     narrative: [
       {
@@ -561,14 +548,10 @@ export const portfolioProjects: PortfolioProject[] = [
         layout: 'pair',
       },
       {
-        kind: 'list',
+        kind: 'images',
         stage: 'result',
-        label: 'MATERIALIDAD',
-        items: [
-          'cuero gris oscuro',
-          'herrajes bronce envejecido',
-          'badana para bolsillos interiores',
-        ],
+        imageIds: ['vinculo-hero', 'vinculo-producto-en-uso'],
+        layout: 'technical',
       },
     ],
     credits: [],
@@ -584,7 +567,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Entre Corteza',
     concept: 'Piel Indómita',
     statement: 'Entre lo rígido y lo etéreo aparece una fuerza que se revela capa por capa.',
-    homeMetadata: 'Taller de Moda y Gestión III · 2025',
+    homeMetadata: '2025',
     accent: {
       primary: 'azul eléctrico',
       secondary: 'tierra / oliva',
@@ -592,65 +575,26 @@ export const portfolioProjects: PortfolioProject[] = [
     specialTreatment: ['fragmentación', 'capas', 'superposición', 'recortes editoriales'],
     metadata: {
       year: '2025',
-      course: 'Taller de Moda y Gestión III',
+      course: 'Colaboración académica vinculada al National Museum of Women in the Arts.',
       period: 'marzo a junio',
       type: 'Grupal',
-      role: [
-        'diseño de uno de los looks',
-        'patronaje',
-        'confección completa',
-        'representación 3D',
-        'participación en conceptualización grupal',
-        'gestión colaboración LUAU Shoes',
-      ],
-      tools: ['Adobe Illustrator para representación 3D', 'patronaje manual', 'confección'],
+      tools: ['Adobe Illustrator', 'Patronaje manual', 'Confección'],
     },
-    context:
-      'Proyecto inspirado en la artista chilena Amelia Errázuriz, desarrollado dentro de una colaboración académica vinculada al National Museum of Women in the Arts.',
-    trend: 'Raíz de Cuero',
     commission:
       'El proyecto consistió en diseñar una colección cápsula orientada al retail inspirada en la sensibilidad visual y material de Amelia Errázuriz, dentro de una colaboración académica vinculada al National Museum of Women in the Arts. El proceso integró análisis del State of Fashion 2025, investigación de tendencias y consumidor, conceptualización, storytelling, desarrollo de cuatro looks, selección de materias primas, fichas técnicas y trazabilidad. La propuesta debía extenderse además hacia editorial, branding, packaging y fashion film, manteniendo una mirada ética y sostenible.',
     proposal:
-      'Entre Corteza nace del análisis de obras de Amelia Errázuriz como Maderas, Cortina, Huellas, Paisaje Rastrojo y Ruptura. Nos interesó especialmente la manera en que la artista trabaja con fragmentación, capas, materiales orgánicos y superficies que parecen contener rastros de transformación. Desde esas observaciones surgió la tendencia Raíz de Cuero y posteriormente el concepto Piel Indómita, entendido como una tensión entre fuerza, contención y liberación. Esta dualidad se tradujo mediante cuero, transparencias, pelo animal reutilizado y textiles ligeros, construyendo contrastes entre rigidez y fluidez. Mi look estuvo compuesto por pantalones de cuero reno, una blusa negra de gasa, cuello de cuero y mangas confeccionadas reutilizando pelo de zorro proveniente de un abrigo de segunda mano. Patroné y confeccioné completamente el look, resolviendo materiales de comportamientos muy distintos mediante costuras francesas, embolsado y terminaciones específicas. Además gestioné personalmente una colaboración con LUAU Shoes, que facilitó tres pares de calzado para completar el styling de los looks femeninos del shooting. El resultado buscó mantener una relación reconocible entre obra, materialidad, prendas y universo visual.',
-    collection: ['4 looks', '3 looks individuales', '1 look grupal'],
-    team: {
-      count: '3',
-      members: ['Nurit Gundelman', 'Isidora Orrego', 'M. Ignacia Paredes'],
-    },
+      'Entre Corteza nace del análisis de una selección de obras de Amelia Errázuriz. Nos interesó especialmente la manera en que la artista trabaja con fragmentación, capas, materiales orgánicos y superficies que parecen contener rastros de transformación. Desde esas observaciones surgió el concepto Piel Indómita, entendido como una tensión entre fuerza, contención y liberación. Esta dualidad se tradujo en una combinación de materialidades, construyendo contrastes entre rigidez y fluidez. El resultado de esta colección buscó mantener una relación reconocible entre obra, materialidad, prendas y universo visual.',
     result: [
-      'pantalón 100 % cuero reno',
-      'blusa negra de gasa',
-      'mangas de pelo de zorro natural reciclado',
-      'pelo recuperado desde un abrigo comprado de segunda mano',
-      'cuello en cuero reno',
-      'forro mangas en piel de ángel',
-      'forro pantalón en popelina al tono del cuero',
+      'Pantalón 100% cuero reno forrado',
+      'Blusa de gasa',
+      'Complemento de mangas de pelo animal natural reciclado forradas',
     ],
-    references: ['Maderas', 'Huellas', 'Cortina', 'Paisaje Rastrojo', 'Acopio Sombras', 'Ruptura'],
-    techniques: [
-      'patronaje manual',
-      'confección completa del look',
-      'mangas embolsadas',
-      'costuras francesas',
-      'dobladillo de aproximadamente 0,3 mm',
-      'costuras abiertas en pantalón',
-      'reconstrucción de pelo reciclado',
+    references: [
+      'Maderas, Huellas, Cortina',
+      'Paisaje Rastrojo, Acopio Sombras, Ruptura',
     ],
-    responsibilities: [
-      'diseño de uno de los looks',
-      'patronaje',
-      'confección completa',
-      'representación 3D',
-      'participación en conceptualización grupal',
-      'gestión colaboración LUAU Shoes',
-    ],
-    collaboration: [
-      'La colaboración fue gestionada personalmente por mí.',
-      'Yo contacté directamente a LUAU Shoes, les expliqué el proyecto y el concepto de la colección.',
-      'La marca aceptó colaborar y permitió seleccionar tres pares de zapatos desde su página.',
-      'Cada uno de los tres looks femeninos utilizó un par diferente.',
-      'El cuarto look era masculino y no requería calzado de la colaboración.',
-    ],
+    highlight:
+      'Gestioné personalmente una colaboración con LUAU Shoes, que facilitó tres pares de calzado para completar el styling de los looks femeninos del shooting.',
     images: [
       {
         id: 'entrecorteza-hero',
@@ -695,6 +639,7 @@ export const portfolioProjects: PortfolioProject[] = [
       masterFileName: 'entrecorteza_fashion-film-original.mov',
       webFileName: 'entrecorteza_fashion-film-web.mp4',
       poster: '/portfolio/projects/entre-corteza/entrecorteza_01_hero.webp',
+      credit: 'Fashionfilm',
       controls: true,
       playsInline: true,
       preload: 'metadata',
@@ -727,12 +672,8 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     credits: [
       {
-        label: 'Equipo',
-        value: ['Nurit Gundelman', 'Isidora Orrego', 'M. Ignacia Paredes'],
-      },
-      {
-        label: 'Colaboración',
-        value: 'LUAU Shoes',
+        label: 'Realización audiovisual',
+        value: 'Alfredo Medina',
       },
     ],
     followUp: {
@@ -747,7 +688,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Próximo Movimiento',
     subtitle: 'Vitatex x Schneider Electric',
     statement: 'Reutilizar no solo la tela, sino también la función que ya existe en cada prenda.',
-    homeMetadata: 'Taller de Moda IV · 2025',
+    homeMetadata: '2025',
     accent: {
       primary: 'azul eléctrico',
       secondary: 'verde neón industrial',

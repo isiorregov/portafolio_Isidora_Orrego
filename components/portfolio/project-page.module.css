@@ -97,6 +97,21 @@
   line-height: 1.4;
 }
 
+@media (min-width: 821px) {
+  .project_cautela_intima .metadata,
+  .project_vinculo .metadata,
+  .project_entre_corteza .metadata {
+    grid-template-columns:
+      minmax(0, 1.05fr)
+      minmax(0, 1.2fr)
+      minmax(0, 0.9fr)
+      minmax(0, 1.25fr);
+    column-gap: clamp(1rem, 1.5vw, 1.5rem);
+    padding-left: clamp(1.5rem, 10vw, 8rem);
+    padding-right: 0;
+  }
+}
+
 .metaSecondary {
   display: block;
   margin-top: 0.25rem;
@@ -185,6 +200,25 @@
   letter-spacing: -0.02em;
 }
 
+.project_cautela_intima .briefSection,
+.project_vinculo .briefSection,
+.project_entre_corteza .briefSection {
+  padding-block: 0;
+}
+
+.project_cautela_intima .briefSection article,
+.project_vinculo .briefSection article,
+.project_entre_corteza .briefSection article {
+  padding-block: clamp(4.5rem, 6.5vw, 6rem);
+}
+
+.project_cautela_intima .briefSection article > p:last-child,
+.project_vinculo .briefSection article > p:last-child,
+.project_entre_corteza .briefSection article > p:last-child {
+  font-size: 25px;
+  line-height: 1.25;
+}
+
 .sectionLabel {
   margin: 0;
   color: var(--blue);
@@ -255,6 +289,23 @@
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4.5vw, 5rem);
   line-height: 0.98;
+}
+
+.project_vinculo .projectHighlight p {
+  font-family: var(--font-sans);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.project_entre_corteza .projectHighlight p {
+  font-family: var(--font-sans);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.highlightAccent {
+  color: var(--blue);
+  font-weight: inherit;
 }
 
 .narrative {
@@ -376,26 +427,80 @@
 }
 
 .narrative_vinculo .layout_sequence figure:nth-child(3) img {
-  object-position: 55% center;
+  object-position: center;
 }
 
 .narrative_vinculo .layout_pair {
-  grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.75fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2rem, 7vw, 7rem);
   align-items: center;
 }
 
+.narrative_vinculo .layout_pair figure:first-child .imageFrame {
+  aspect-ratio: 1 / 1.05;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.narrative_vinculo .layout_pair figure:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .narrative_vinculo .layout_pair figure:nth-child(2) {
-  width: 88%;
-  justify-self: center;
+  width: 94%;
+  justify-self: end;
 }
 
 .narrative_vinculo .layout_pair figure:nth-child(2) .imageFrame {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1.08 / 1;
   overflow: hidden;
   background: var(--paper-deep);
 }
 
 .narrative_vinculo .layout_pair figure:nth-child(2) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.narrative_vinculo .narrativeQuote {
+  margin-top: 0;
+  color: #9d955f;
+  font-family: var(--font-sans);
+}
+
+.narrative_vinculo {
+  padding-top: clamp(4rem, 8vw, 8rem);
+}
+
+.narrative_vinculo .layout_technical {
+  width: min(100%, 82rem);
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  margin-inline: auto;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.narrative_vinculo .layout_technical figure:first-child .imageFrame {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.narrative_vinculo .layout_technical figure:nth-child(2) .imageFrame {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.narrative_vinculo .layout_technical img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -460,6 +565,19 @@
   background: #d8d9dd;
 }
 
+.narrative_cautela_intima {
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.narrative_cautela_intima .videoFigure,
+.narrative_entre_corteza .videoFigure {
+  margin-bottom: 0;
+}
+
+.narrative_entre_corteza {
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+}
+
 .video_entre_corteza video {
   background: #b7b8ba;
 }
@@ -491,6 +609,16 @@
   border-top: 1px solid var(--line);
 }
 
+.project_cautela_intima .credits dl div {
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+
+.project_entre_corteza .credits dl div {
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+
 .credits dt {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -499,6 +627,11 @@
 .followUp {
   padding: clamp(7rem, 13vw, 13rem) 1.5rem;
   border-top: 1px solid var(--ink);
+}
+
+.project_cautela_intima .followUp,
+.project_entre_corteza .followUp {
+  padding-top: clamp(4.5rem, 6vw, 6rem);
 }
 
 .followUp > h2 {
@@ -702,6 +835,12 @@
   .narrative_vinculo .layout_pair,
   .narrative_proximo_movimiento .layout_technical {
     grid-template-columns: 1fr;
+  }
+
+  .narrative_vinculo .layout_technical {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .narrative_vinculo .layout_pair figure:nth-child(2),
