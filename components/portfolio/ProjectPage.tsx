@@ -32,17 +32,12 @@ const metadataToolLines: Record<PortfolioProject['slug'], string[]> = {
   ],
   vinculo: ['Patronaje manual', 'Confección mixta'],
   'entre-corteza': ['Adobe Illustrator', 'Patronaje manual', 'Confección'],
-  'proximo-movimiento': ['Adobe Illustrator'],
-};
-
-const metadataRoleLines: Partial<Record<PortfolioProject['slug'], string[]>> = {
   'proximo-movimiento': [
-    'co-diseño del bolso · definición del aprovechamiento de uniformes',
-    'búsqueda de referentes · fichas técnicas completas',
-    'registro audiovisual durante todo el proceso',
-    'edición completa del working process · selección musical',
-    'dirección fotográfica · elección de locación',
-    'realización de fotografías finales',
+    'Adobe Illustrator',
+    'Patronaje manual',
+    'Confección',
+    'CapCut',
+    'Dirección de Arte',
   ],
 };
 
@@ -62,7 +57,7 @@ function PortfolioImage({ image, project, priority = false }: {
   priority?: boolean;
 }) {
   return (
-    <figure className={styles.imageFigure}>
+    <figure className={`${styles.imageFigure} ${styles[`imageRole_${image.role}`]}`}>
       <div className={styles.imageFrame}>
         <img
           src={assetUrl(image.src)}
@@ -185,14 +180,17 @@ export function ProjectPage({ project }: { project: PortfolioProject }) {
   const isCautelaIntima = project.slug === 'cautela-intima';
   const isVinculo = project.slug === 'vinculo';
   const isEntreCorteza = project.slug === 'entre-corteza';
-  const usesProjectMetadataLabels = isCautelaIntima || isVinculo || isEntreCorteza;
+  const isProximoMovimiento = project.slug === 'proximo-movimiento';
+  const usesProjectMetadataLabels = isCautelaIntima || isVinculo || isEntreCorteza || isProximoMovimiento;
   const projectClassName = isCautelaIntima
     ? styles.project_cautela_intima
     : isVinculo
       ? styles.project_vinculo
       : isEntreCorteza
         ? styles.project_entre_corteza
-        : '';
+        : isProximoMovimiento
+          ? styles.project_proximo_movimiento
+          : '';
   const accentStyle = {
     '--project-accent': projectAccents[project.slug],
   } as CSSProperties;
@@ -238,7 +236,7 @@ export function ProjectPage({ project }: { project: PortfolioProject }) {
             {project.metadata.role ? (
               <div>
                 <dt>Rol</dt>
-                <dd><MetadataLines lines={metadataRoleLines[project.slug] ?? [project.metadata.role.join(' · ')]} /></dd>
+                <dd><MetadataLines lines={project.metadata.role} /></dd>
               </div>
             ) : null}
             <div>
@@ -265,39 +263,49 @@ export function ProjectPage({ project }: { project: PortfolioProject }) {
         </section>
 
         <section className={styles.projectLedger} aria-label="Información complementaria">
-          {project.context ? <DetailList label="Contexto" items={[project.context]} /> : null}
-          {project.user ? <DetailList label="Usuario" items={[project.user]} /> : null}
-          {project.concept ? <DetailList label="Concepto" items={[project.concept]} /> : null}
-          {project.trend ? <DetailList label="Tendencia" items={[project.trend]} /> : null}
-          {project.collection ? <DetailList label="Colección" items={project.collection} /> : null}
-          {project.result ? <DetailList label="Resultado" items={project.result} /> : null}
-          {project.materials ? <DetailList label="Materialidad" items={project.materials} /> : null}
-          {project.techniqueDetails ? (
-            <DetailList
-              label="Técnicas"
-              items={project.techniqueDetails.map(({ label, value }) => `${label}: ${value}`)}
-            />
-          ) : project.techniques ? (
-            <DetailList label="Técnicas" items={project.techniques} />
-          ) : null}
-          {project.construction ? (
-            <DetailList
-              label="Construcción"
-              items={project.construction.map(({ name, detail }) => `${name}: ${detail}`)}
-            />
-          ) : null}
-          {project.references ? <DetailList label="Obras de referencia" items={project.references} /> : null}
-          {project.team ? (
-            <DetailList label={`Equipo · ${project.team.count} integrantes`} items={project.team.members} />
-          ) : null}
-          {project.responsibilities ? <DetailList label="Mi rol" items={project.responsibilities} /> : null}
-          {project.collaboration ? (
-            <DetailList label="Colaboración LUAU Shoes" items={project.collaboration} />
-          ) : null}
-          {project.technicalSheets ? <DetailList label="Fichas técnicas" items={project.technicalSheets} /> : null}
-          {project.technicalSheetContents ? (
-            <DetailList label="Contenido técnico" items={project.technicalSheetContents} />
-          ) : null}
+          {isProximoMovimiento ? (
+            <>
+              <DetailList label="Contexto y usuario" items={[project.context!, project.user!]} />
+              <DetailList label="Mi rol" items={project.responsibilities ?? []} />
+              <DetailList label="Resultado" items={project.result ?? []} />
+            </>
+          ) : (
+            <>
+              {project.context ? <DetailList label="Contexto" items={[project.context]} /> : null}
+              {project.user ? <DetailList label="Usuario" items={[project.user]} /> : null}
+              {project.concept ? <DetailList label="Concepto" items={[project.concept]} /> : null}
+              {project.trend ? <DetailList label="Tendencia" items={[project.trend]} /> : null}
+              {project.collection ? <DetailList label="Colección" items={project.collection} /> : null}
+              {project.result ? <DetailList label="Resultado" items={project.result} /> : null}
+              {project.materials ? <DetailList label="Materialidad" items={project.materials} /> : null}
+              {project.techniqueDetails ? (
+                <DetailList
+                  label="Técnicas"
+                  items={project.techniqueDetails.map(({ label, value }) => `${label}: ${value}`)}
+                />
+              ) : project.techniques ? (
+                <DetailList label="Técnicas" items={project.techniques} />
+              ) : null}
+              {project.construction ? (
+                <DetailList
+                  label="Construcción"
+                  items={project.construction.map(({ name, detail }) => `${name}: ${detail}`)}
+                />
+              ) : null}
+              {project.references ? <DetailList label="Obras de referencia" items={project.references} /> : null}
+              {project.team ? (
+                <DetailList label={`Equipo · ${project.team.count} integrantes`} items={project.team.members} />
+              ) : null}
+              {project.responsibilities ? <DetailList label="Mi rol" items={project.responsibilities} /> : null}
+              {project.collaboration ? (
+                <DetailList label="Colaboración LUAU Shoes" items={project.collaboration} />
+              ) : null}
+              {project.technicalSheets ? <DetailList label="Fichas técnicas" items={project.technicalSheets} /> : null}
+              {project.technicalSheetContents ? (
+                <DetailList label="Contenido técnico" items={project.technicalSheetContents} />
+              ) : null}
+            </>
+          )}
         </section>
 
         {project.highlight ? (

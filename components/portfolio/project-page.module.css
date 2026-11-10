@@ -100,7 +100,8 @@
 @media (min-width: 821px) {
   .project_cautela_intima .metadata,
   .project_vinculo .metadata,
-  .project_entre_corteza .metadata {
+  .project_entre_corteza .metadata,
+  .project_proximo_movimiento .metadata {
     grid-template-columns:
       minmax(0, 1.05fr)
       minmax(0, 1.2fr)
@@ -202,21 +203,28 @@
 
 .project_cautela_intima .briefSection,
 .project_vinculo .briefSection,
-.project_entre_corteza .briefSection {
+.project_entre_corteza .briefSection,
+.project_proximo_movimiento .briefSection {
   padding-block: 0;
 }
 
 .project_cautela_intima .briefSection article,
 .project_vinculo .briefSection article,
-.project_entre_corteza .briefSection article {
+.project_entre_corteza .briefSection article,
+.project_proximo_movimiento .briefSection article {
   padding-block: clamp(4.5rem, 6.5vw, 6rem);
 }
 
 .project_cautela_intima .briefSection article > p:last-child,
 .project_vinculo .briefSection article > p:last-child,
-.project_entre_corteza .briefSection article > p:last-child {
+.project_entre_corteza .briefSection article > p:last-child,
+.project_proximo_movimiento .briefSection article > p:last-child {
   font-size: 25px;
   line-height: 1.25;
+}
+
+.project_proximo_movimiento .briefSection article > p:last-child {
+  white-space: pre-line;
 }
 
 .sectionLabel {
@@ -509,13 +517,38 @@
 
 .narrative_proximo_movimiento .layout_technical {
   grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.8fr);
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
   background: none;
+  margin-block: clamp(4rem, 8vw, 8rem);
 }
 
 .narrative_proximo_movimiento .layout_technical figure:nth-child(2) {
   width: 82%;
   justify-self: center;
+}
+
+.narrative_proximo_movimiento .layout_technical figure:first-child .imageFrame {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.narrative_proximo_movimiento .layout_technical figure:nth-child(2) .imageFrame {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.narrative_proximo_movimiento .layout_technical img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.narrative_proximo_movimiento .layout_technical .imageRole_technical img {
+  object-fit: contain;
 }
 
 .narrativeList {
@@ -570,11 +603,16 @@
 }
 
 .narrative_cautela_intima .videoFigure,
-.narrative_entre_corteza .videoFigure {
+.narrative_entre_corteza .videoFigure,
+.narrative_proximo_movimiento .videoFigure {
   margin-bottom: 0;
 }
 
 .narrative_entre_corteza {
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.narrative_proximo_movimiento {
   padding-bottom: clamp(3rem, 5vw, 5rem);
 }
 
@@ -619,6 +657,11 @@
   gap: 0.45rem;
 }
 
+.project_proximo_movimiento .credits dl div {
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+
 .credits dt {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -630,7 +673,8 @@
 }
 
 .project_cautela_intima .followUp,
-.project_entre_corteza .followUp {
+.project_entre_corteza .followUp,
+.project_proximo_movimiento .followUp {
   padding-top: clamp(4.5rem, 6vw, 6rem);
 }
 

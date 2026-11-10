@@ -6,15 +6,18 @@ import styles from './portfolio-chrome.module.css';
 
 const navigationItems = [
   { number: '01', label: 'Proyectos', href: `${BASE_PATH}/#proyectos` },
-  { number: '02', label: 'Sobre mí', href: `${BASE_PATH}/about` },
+  { number: '02', label: 'Isidora', href: `${BASE_PATH}/about` },
   { number: '03', label: 'Contacto', href: `${BASE_PATH}/contact` },
 ];
 
 const cvHref = `${BASE_PATH}/portfolio/cv/CV-OrregoIsidora.pdf`;
+const fullBrandName = 'ISIDORA ORREGO';
 
-export function PortfolioNavigation() {
+export function PortfolioNavigation({ typewriterBrand = false }: { typewriterBrand?: boolean }) {
   const [isCompact, setIsCompact] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [typedBrand, setTypedBrand] = useState(typewriterBrand ? '' : fullBrandName);
+  const [isBrandTyping, setIsBrandTyping] = useState(typewriterBrand);
 
   useEffect(() => {
     const updateNavigation = () => setIsCompact(window.scrollY > 36);
@@ -35,6 +38,40 @@ export function PortfolioNavigation() {
     return () => window.removeEventListener('keydown', closeOnEscape);
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (!typewriterBrand) {
+      setTypedBrand(fullBrandName);
+      setIsBrandTyping(false);
+      return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTypedBrand(fullBrandName);
+      setIsBrandTyping(false);
+      return;
+    }
+
+    let characterIndex = 0;
+    let cursorTimer: ReturnType<typeof window.setTimeout> | undefined;
+    setTypedBrand('');
+    setIsBrandTyping(true);
+
+    const typingTimer = window.setInterval(() => {
+      characterIndex += 1;
+      setTypedBrand(fullBrandName.slice(0, characterIndex));
+
+      if (characterIndex === fullBrandName.length) {
+        window.clearInterval(typingTimer);
+        cursorTimer = window.setTimeout(() => setIsBrandTyping(false), 500);
+      }
+    }, 90);
+
+    return () => {
+      window.clearInterval(typingTimer);
+      if (cursorTimer) window.clearTimeout(cursorTimer);
+    };
+  }, [typewriterBrand]);
+
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
@@ -48,12 +85,21 @@ export function PortfolioNavigation() {
           aria-label="Isidora Orrego — ir al inicio"
           onClick={closeMenu}
         >
-          <img
-            className={styles.brandLogo}
-            src={`${BASE_PATH}/portfolio/identity/isidora-monograma-io.png`}
-            alt=""
-            aria-hidden="true"
-          />
+          {typewriterBrand ? (
+            <span
+              className={`${styles.typewriterBrand} ${isBrandTyping ? styles.typewriterBrandTyping : ''}`}
+              aria-hidden="true"
+            >
+              {typedBrand || '\u00A0'}
+            </span>
+          ) : (
+            <img
+              className={styles.brandLogo}
+              src={`${BASE_PATH}/portfolio/identity/isidora-monograma-io.png`}
+              alt=""
+              aria-hidden="true"
+            />
+          )}
         </a>
 
         <button

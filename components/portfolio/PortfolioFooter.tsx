@@ -13,8 +13,8 @@ export function PortfolioFooter() {
       </div>
 
       <div className={styles.footerLinks}>
-        <a className={styles.footerLink} href="mailto:iorregovc@gmail.com">
-          iorregovc@gmail.com
+        <a className={styles.footerLink} href="mailto:isiorregov@gmail.com">
+          isiorregov@gmail.com
         </a>
         <a
           className={styles.footerLink}

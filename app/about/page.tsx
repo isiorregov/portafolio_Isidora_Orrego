@@ -6,7 +6,7 @@ import styles from '@/components/portfolio/portfolio-pages.module.css';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Sobre mí — Isidora Orrego',
+  title: 'Isidora — Portafolio',
 };
 
 const principles = [
@@ -65,7 +65,7 @@ const tools = [
 export default function AboutPage() {
   return (
     <div className={styles.page}>
-      <PortfolioFrame>
+      <PortfolioFrame typewriterBrand>
         <main>
           <section className={styles.aboutHero} aria-labelledby="about-title">
             <div className={styles.aboutImageWrap}>
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
             <div className={styles.aboutIntro}>
               <h1 className={styles.aboutTitle} id="about-title">
-                Sobre mí — Isidora Orrego
+                Isidora Orrego
               </h1>
               <img
                 className={styles.aboutPins}
